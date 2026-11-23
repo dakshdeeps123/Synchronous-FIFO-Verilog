@@ -21,7 +21,7 @@ module fifo(input clk,rst,input [7:0]data_in,input wr_en,rd_en,output reg [7:0] 
   //read
   always@(posedge clk) begin
     if (rst)
-      rd_ptr=0;
+      rd_ptr<=0;
   else if (rd_en && !empty) begin 
     data_out <= mem[rd_ptr];
   rd_ptr <= rd_ptr + 2'b01;
